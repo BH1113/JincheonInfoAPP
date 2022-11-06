@@ -13,8 +13,10 @@ import {
   Text,
 } from 'react-native';
 import SelectList from 'react-native-dropdown-select-list';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
-const mainHome = () => {
+const mainHome = ({navigation}) => {
     const [searching,setsearchdata] = useState("");
 
     const data= [
