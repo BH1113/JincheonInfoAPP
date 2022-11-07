@@ -11,6 +11,7 @@ import {
   Image,
   TouchableOpacity,
   Text,
+  Button,
 } from 'react-native';
 import SelectList from 'react-native-dropdown-select-list';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -33,14 +34,12 @@ const mainHome = ({navigation}) => {
        
         </View >
         <View style={styles.middleviewstyle}>
-        <Text style={styles.textsetting}>우리동네 문화제</Text>
-          <ScrollView>
-            <TouchableOpacity>
-              <Image source={require('../image/brige.jpg')} style={styles.imagestyle}/>
-  
-            </TouchableOpacity>
-          </ScrollView>
-  
+          <Text style={styles.textsetting}>우리동네 문화제</Text>
+          <Button title='내주위 문화제' style={styles.button}></Button>
+          <Button title='진천 문화제' style={styles.button}></Button>
+          <Button title='내주위 문화제' style={styles.button}></Button>
+          <Button title='내주위 문화제' style={styles.button}></Button>
+        
         </View>
       </SafeAreaView>
     )
@@ -71,6 +70,12 @@ const styles = StyleSheet.create({
       textAlign:'center',
       fontWeight:'bold',
       fontSize:20,
+    },
+    button: {
+      margin: 10,
+      width: "50%",
+      height: "50%",
+
     },
   });
   
