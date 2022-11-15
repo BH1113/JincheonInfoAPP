@@ -18,6 +18,7 @@ import SelectList from 'react-native-dropdown-select-list';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer} from '@react-navigation/native';
 import mainHome from './components/mainHome';
+import culturakdate from './components/culturaldate';
 
 
 const Drawer = createDrawerNavigator();
@@ -27,6 +28,7 @@ const App = () => {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName='MainHome'>
         <Drawer.Screen name='MainHome' component={mainHome}/>
+        <Drawer.Screen name='culturaldate' component={culturakdate}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
