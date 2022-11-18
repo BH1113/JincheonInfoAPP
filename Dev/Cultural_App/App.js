@@ -19,6 +19,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer} from '@react-navigation/native';
 import mainHome from './components/mainHome';
 import culturakdate from './components/culturaldate';
+import map from './components/map';
 
 
 const Drawer = createDrawerNavigator();
@@ -26,9 +27,10 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return(
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName='MainHome'>
-        <Drawer.Screen name='MainHome' component={mainHome}/>
-        <Drawer.Screen name='culturaldate' component={culturakdate}/>
+      <Drawer.Navigator initialRouteName='mainHome'>
+        <Drawer.Screen name='mainHome' component={mainHome}/>
+        <Drawer.Screen name='cultorakdate' component={culturakdate}/>
+        <Drawer.Screen name='map' component={map}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
