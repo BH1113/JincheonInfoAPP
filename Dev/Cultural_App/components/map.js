@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 
   map: {
     height: 610,
-    width: 420,
+    width: 415,
     justifyContent: "flex-end",
     alignItems: "center",
   },
