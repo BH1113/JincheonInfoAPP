@@ -89,7 +89,7 @@ const mainHome = ({navigation}) => {
         <SafeAreaView>
           <View>
             <Button
-              title="내주위 문화제"
+              title="내주위 문화재"
               style={styles.button}
               onPress={() => navigation.navigate('map')}
             />
@@ -105,7 +105,7 @@ const mainHome = ({navigation}) => {
                     informationUrl + findImageName(searching),
                   );
                   const json = await response.json();
-                  return navigation.navigate('culture', {
+                  return navigation.navigate('information', {
                     information: json,
                   });
                 } catch (err) {
