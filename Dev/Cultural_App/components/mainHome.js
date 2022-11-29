@@ -28,7 +28,7 @@ const mainHome = ({navigation}) => {
   const [loding, setloding] = useState(true);
   const [data, setData] = useState([]);
 
-  const informationUrl = 'http://192.168.0.10/capServer/detail/'; //데이터를 요청할 서버 주소
+  const informationUrl = 'http://192.168.86.159/capServer/detail/'; //데이터를 요청할 서버 주소
 
   // useEffect(() => {
   //   fetch(url)
@@ -109,7 +109,7 @@ const mainHome = ({navigation}) => {
                     information: json,
                   });
                 } catch (err) {
-                  alert('서버에 접속이 안됩니다.');
+                  alert(err);
                 }
               }}
             />

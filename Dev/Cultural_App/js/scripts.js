@@ -6,4 +6,4 @@ const imageName = {
   5: 'gilsangsa',
 };
 
-export {imageName};
+export default imageName;
