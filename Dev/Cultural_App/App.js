@@ -19,7 +19,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import mainHome from './components/mainHome';
-import culturakdate from './components/culturaldate';
+import culture from './components/information';
 import map from './components/map';
 
 
@@ -30,7 +30,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='mainHome' component={mainHome}/>
-        <Stack.Screen name='culturakdate' component={culturakdate}/>
+        <Stack.Screen name='culture' component={culture}/>
         <Stack.Screen name='map' component={map}/>
       </Stack.Navigator>
     </NavigationContainer>
