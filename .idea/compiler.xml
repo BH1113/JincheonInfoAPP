@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+      <profile name="Annotation profile for capServer" enabled="true">
+        <sourceOutputDir name="../../../local/apache-tomcat-9.0.69/webapps/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../../local/apache-tomcat-9.0.69/webapps/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="capstonServer" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
