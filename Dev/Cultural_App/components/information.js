@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {SliderBox} from 'react-native-image-slider-box';
+import {SliderBox} from 'react-native';
 
 import {SafeAreaView, ScrollView, Image, Text} from 'react-native';
 import mainHome from './mainHome';
