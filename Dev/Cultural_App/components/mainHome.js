@@ -96,9 +96,9 @@ const mainHome = ({navigation}) => {
           setSelected={setsearchdata}
           
         />
-      </View>
+      
       <View style={styles.middleviewstyle}>
-        <SafeAreaView>
+       
           <View>
             <Button
               title="내주위 문화재"
@@ -126,7 +126,7 @@ const mainHome = ({navigation}) => {
               }}
             />
           </View>
-          <ScrollView style={styles.sideview}>
+          <ScrollView style={styles.scrollview}>
             {
               <Image
                 style={styles.imagestyle}
@@ -135,7 +135,8 @@ const mainHome = ({navigation}) => {
             }
             {<Text>{searchdata(searching)}</Text>}
           </ScrollView>
-        </SafeAreaView>
+       
+      </View>
       </View>
     </SafeAreaView>
   );
@@ -145,8 +146,8 @@ const styles = StyleSheet.create({
   viewstyle: {
     paddingHorizontal: 10,
     paddingVertical: 50,
-    height: '40%',
-    flex: 0.7,
+    height: '100%',
+    flex: 1,
   },
   middleviewstyle: {
     flex: 1,
@@ -174,6 +175,14 @@ const styles = StyleSheet.create({
   sideview: {
     width: '100%',
     height: '60%',
+  },
+  scrollview:{
+    height:'100%',
+    
+  },
+  SafeAreaViewStyles2:{
+    height:'100%',
+    flex:1,
   },
 });
 
