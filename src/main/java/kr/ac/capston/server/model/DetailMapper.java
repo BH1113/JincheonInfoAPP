@@ -18,6 +18,7 @@ public class DetailMapper implements RowMapper<DetailDto> {
         detailDto.setCor_x(rs.getBigDecimal("cor_x"));
         detailDto.setCor_y(rs.getBigDecimal("cor_y"));
         detailDto.setImageFormat(rs.getString("imageFormat"));
+        detailDto.setImageAmount(rs.getInt("imageamount"));
         return detailDto;
     }
 }

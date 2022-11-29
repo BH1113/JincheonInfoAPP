@@ -77,6 +77,7 @@ public class DetailDaoImpl implements DetailDao{
                     detailDto1.setDetailImage(rs.getString("detailImage"));
                     detailDto1.setDetailIntro(rs.getString("detailIntro"));
                     detailDto1.setImageFormat(rs.getString("imageFormat"));
+                    detailDto1.setImageAmount(rs.getInt("imageamount"));
                     return  detailDto1;
                 });
         return  detailDto;

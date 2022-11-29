@@ -91,14 +91,9 @@ const mainHome = ({navigation}) => {
   return (
     <SafeAreaView style={styles.SafeAreaViewStyles}>
       <View style={styles.viewstyle}>
-        <SelectList
-          data={namedata}
-          setSelected={setsearchdata}
-          
-        />
-      
-      <View style={styles.middleviewstyle}>
-       
+        <SelectList data={namedata} setSelected={setsearchdata} />
+
+        <View style={styles.middleviewstyle}>
           <View>
             <Button
               title="내주위 문화재"
@@ -117,7 +112,7 @@ const mainHome = ({navigation}) => {
                     informationUrl + findImageName(searching),
                   );
                   const json = await response.json();
-                  return navigation.navigate('information', {
+                  return navigation.navigate('culture', {
                     information: json,
                   });
                 } catch (err) {
@@ -135,8 +130,7 @@ const mainHome = ({navigation}) => {
             }
             {<Text>{searchdata(searching)}</Text>}
           </ScrollView>
-       
-      </View>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -152,7 +146,7 @@ const styles = StyleSheet.create({
   middleviewstyle: {
     flex: 1,
     marginTop: 0,
-    height:'60%'
+    height: '60%',
   },
   SafeAreaViewStyles: {
     flex: 1,
@@ -176,13 +170,12 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '60%',
   },
-  scrollview:{
-    height:'100%',
-    
+  scrollview: {
+    height: '100%',
   },
-  SafeAreaViewStyles2:{
-    height:'100%',
-    flex:1,
+  SafeAreaViewStyles2: {
+    height: '100%',
+    flex: 1,
   },
 });
 

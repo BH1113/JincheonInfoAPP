@@ -10,6 +10,15 @@ public class DetailDto {
     private BigDecimal cor_x;
     private BigDecimal cor_y;
     private String imageFormat;
+    private int imageAmount;
+
+    public int getImageAmount() {
+        return imageAmount;
+    }
+
+    public void setImageAmount(int imageAmount) {
+        this.imageAmount = imageAmount;
+    }
 
     public String getImageFormat() {
         return imageFormat;
