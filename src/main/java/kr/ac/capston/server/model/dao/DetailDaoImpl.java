@@ -78,6 +78,8 @@ public class DetailDaoImpl implements DetailDao{
                     detailDto1.setDetailIntro(rs.getString("detailIntro"));
                     detailDto1.setImageFormat(rs.getString("imageFormat"));
                     detailDto1.setImageAmount(rs.getInt("imageamount"));
+                    detailDto1.setCor_x(rs.getBigDecimal("cor_x"));
+                    detailDto1.setCor_y(rs.getBigDecimal("cor_y"));
                     return  detailDto1;
                 });
         return  detailDto;
