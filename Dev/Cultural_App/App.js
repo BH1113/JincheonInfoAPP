@@ -11,6 +11,7 @@ import {
   Image,
   TouchableOpacity,
   Text,
+  ImageBackground,
 } from 'react-native';
 import SelectList from 'react-native-dropdown-select-list';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -26,12 +27,33 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="mainHome" component={mainHome} />
-        <Stack.Screen name="culture" component={culture} />
-        <Stack.Screen name="map" component={map} />
+        <Stack.Screen name="mainHome" component={mainHome} 
+        options={{
+          title:'',
+           headerBackground: () => <ImageBackground style={{width:411, height:80}} source={require('./image/appheader.png')}/>
+           }}
+        />
+        <Stack.Screen name="culture" component={culture} 
+         options={{
+          title:'',
+           headerBackground: () => <ImageBackground style={{width:411, height:80}} source={require('./image/appheader.png')}/>
+           }}
+        />
+        <Stack.Screen name="map" component={map}
+         options={{
+          title:'',
+           headerBackground: () => <ImageBackground style={{width:411, height:80}} source={require('./image/appheader.png')}/>
+           }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
+const styles = StyleSheet.create({
+  headerimage:{
+    width:'100%',
+    height: '100%',
+  }
+})
 export default App;
