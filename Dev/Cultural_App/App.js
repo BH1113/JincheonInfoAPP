@@ -1,9 +1,7 @@
-
-
-import React,{useState}from 'react';
+import React, {useState} from 'react';
 
 import {
-  SafeAreaView, 
+  SafeAreaView,
   StyleSheet,
   View,
   FlatList,
@@ -15,29 +13,25 @@ import {
   Text,
 } from 'react-native';
 import SelectList from 'react-native-dropdown-select-list';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer} from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import mainHome from './components/mainHome';
 import culture from './components/information';
 import map from './components/map';
 
-
 const Stack = createStackNavigator();
 
 const App = () => {
-  return(
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='mainHome' component={mainHome}/>
-        <Stack.Screen name='culture' component={culture}/>
-        <Stack.Screen name='map' component={map}/>
+        <Stack.Screen name="mainHome" component={mainHome} />
+        <Stack.Screen name="culture" component={culture} />
+        <Stack.Screen name="map" component={map} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-  
-
 };
-
 
 export default App;

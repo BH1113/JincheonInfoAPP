@@ -1,29 +1,44 @@
 import React, {useState, useContext} from 'react';
-import {SliderBox} from 'react-native';
-
-import {SafeAreaView, ScrollView, Image, Text} from 'react-native';
+import {ImageSlider} from 'react-native-image-slider-banner';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  FlatList,
+  Item,
+  TextInput,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Text,
+  Button,
+} from 'react-native';
 import mainHome from './mainHome';
 
 const culture = ({route}) => {
   const detailInformation = route.params.information;
-  const imageAmount = detailInformation.imageAmount;
-  const imagePath =
-    'http://192.168.86.159/image/' + detailInformation.detailImage;
-  const imageFormat = detailInformation.imageFormat;
-  const imageArr = [];
+  const url = 'http://192.168.86.159/image/';
+  const imageName = detailInformation.detailImage;
+  const format = detailInformation.imageFormat;
+  const numofImage = detailInformation.imageAmount;
+  const images = [];
 
-  if (imageAmount != 0) {
-    for (let i = 0; i < imageAmount; i++) {
-      imageArr.push(imagePath + i + imageFormat);
+  images.push({img: url + imageName + format});
+  if (numofImage > 0) {
+    for (let i = 1; i < numofImage + 1; i++) {
+      images.push({img: url + imageName + i + format});
     }
-  } else {
-    imageArr.push(imagePath + imageFormat);
   }
 
   return (
     <SafeAreaView>
       <ScrollView>
-        <SliderBox images={imageArr} autoplay cicrleLoop />
+        <ImageSlider
+          data={images}
+          autoPlay={false}
+          onItemChanged={item => console.log('item', item)}
+          closeIconColor="#fff"
+        />
         <Text>{detailInformation.detailIntro}</Text>
       </ScrollView>
     </SafeAreaView>
