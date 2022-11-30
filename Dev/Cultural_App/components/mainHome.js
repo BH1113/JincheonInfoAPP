@@ -21,7 +21,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {color} from 'react-native-reanimated';
 import {Directions, State} from 'react-native-gesture-handler';
 import culture from './information';
-import scripts from '../js/scripts';
+import {imageName} from '../js/scripts';
 
 const mainHome = ({navigation}) => {
   const [searching, setsearchdata] = useState('');
@@ -29,14 +29,6 @@ const mainHome = ({navigation}) => {
   const [data, setData] = useState([]);
 
   const informationUrl = 'http://192.168.86.159/capServer/detail/'; //데이터를 요청할 서버 주소
-
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(json => setData(json))
-  //     .catch(error => console.error(error))
-  //     .finally(() => setloding(false));
-  // }, []); //서버에 데이터를 요청하는 부분
 
   const namedata = [
     {key: '1', value: '이상설 생가'},
@@ -85,7 +77,7 @@ const mainHome = ({navigation}) => {
     return imagedate;
   }
   function findImageName(key) {
-    return scripts[key];
+    return imageName[key];
   }
 
   return (

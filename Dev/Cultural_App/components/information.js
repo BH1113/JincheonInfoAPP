@@ -23,8 +23,6 @@ const culture = ({route}) => {
   const imageName = detailInformation.detailImage;
   const format = detailInformation.imageFormat;
   const numofImage = detailInformation.imageAmount;
-  const cor_x = new Decimal(detailInformation.cor_x);
-  const cor_y = new Decimal(detailInformation.cor_x);
   const images = [];
 
   images.push({img: url + imageName + format});
@@ -51,8 +49,8 @@ const culture = ({route}) => {
               }}>
               <Marker
                 coordinate={{
-                  latitude: cor_x,
-                  longitude: cor_y,
+                  latitude: detailInformation.cor_x,
+                  longitude: detailInformation.cor_y,
                 }}
               />
             </MapView>
