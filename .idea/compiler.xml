@@ -11,6 +11,7 @@
         <sourceOutputDir name="../../../local/apache-tomcat-9.0.69/webapps/generated-sources/annotations" />
         <sourceTestOutputDir name="../../../local/apache-tomcat-9.0.69/webapps/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="capstonProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

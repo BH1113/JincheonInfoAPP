@@ -1,6 +1,6 @@
 package kr.ac.capston.server.model;
 
-import kr.ac.capston.server.model.dto.*;
+import kr.ac.capston.server.model.dto.DetailDto;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

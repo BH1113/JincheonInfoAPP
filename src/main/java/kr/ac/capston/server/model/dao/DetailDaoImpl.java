@@ -93,4 +93,19 @@ public class DetailDaoImpl implements DetailDao{
          );
          return detailDtoList;
     }
+
+    @Override
+    public void updateImageAmount(int update, int pk){
+        jdbcTemplate.update(new PreparedStatementCreator() {
+            @Override
+            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                PreparedStatement pstmt = con.prepareStatement(
+                        "update capdb.jincheondetail set imageAmount = ? where idjincheonDetailkey = ?"
+                );
+                pstmt.setInt(1, update);
+                pstmt.setInt(2, pk);
+                return pstmt;
+            }
+        });
+    }
 }

@@ -1,7 +1,6 @@
 package kr.ac.capston.server.detail;
 
 import kr.ac.capston.server.model.dao.DetailDao;
-import kr.ac.capston.server.model.dao.DetailDaoImpl;
 import kr.ac.capston.server.model.dto.DetailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -9,5 +9,6 @@ public interface DetailDao {
     public abstract void add(DetailDto detailDto);
     public abstract void delete(String name);
     public abstract void update(DetailDto detailDto);
+    public abstract void updateImageAmount(int update, int pk);
     public abstract List<DetailDto> getAll();
 }
