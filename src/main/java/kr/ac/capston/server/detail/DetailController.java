@@ -12,8 +12,6 @@ import java.util.List;
 
 @Controller
 public class DetailController {
-    static final String detailUrl = "detail";
-
     @Autowired
     private DetailDao detailDao;
 
