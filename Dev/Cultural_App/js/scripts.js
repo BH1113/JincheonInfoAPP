@@ -10,4 +10,4 @@ const imageName = {
   9: 'jungcharl',
 };
 
-export default imageName;
+export {imageName};

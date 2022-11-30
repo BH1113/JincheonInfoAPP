@@ -1,5 +1,7 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, Fragment} from 'react';
 import {ImageSlider} from 'react-native-image-slider-banner';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import {Decimal} from 'decimal.js';
 import {
   SafeAreaView,
   StyleSheet,
@@ -30,6 +32,34 @@ const culture = ({route}) => {
     }
   }
 
+  const renderMap = () => {
+    if (detailInformation.cor_y != 0 && detailInformation.cor_y != 0) {
+      return (
+        <Fragment>
+          <View
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <MapView
+              style={{width: '50%', height: 200}}
+              provider={PROVIDER_GOOGLE}
+              initialRegion={{
+                latitude: detailInformation.cor_x,
+                longitude: detailInformation.cor_y,
+                latitudeDelta: 0.006,
+                longitudeDelta: 0.004,
+              }}>
+              <Marker
+                coordinate={{
+                  latitude: detailInformation.cor_x,
+                  longitude: detailInformation.cor_y,
+                }}
+              />
+            </MapView>
+          </View>
+        </Fragment>
+      );
+    }
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -40,6 +70,7 @@ const culture = ({route}) => {
           closeIconColor="#fff"
         />
         <Text>{detailInformation.detailIntro}</Text>
+        {renderMap()}
       </ScrollView>
     </SafeAreaView>
   );
