@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
   },
   SafeAreaViewStyles: {
     flex: 1,
+  
   },
   imagestyle: {
     height: 200,

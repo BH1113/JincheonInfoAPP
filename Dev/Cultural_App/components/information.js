@@ -37,7 +37,7 @@ const culture = ({route}) => {
       return (
         <Fragment>
           <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#6dd5ed'}}>
             <MapView
               style={{width: '50%', height: 200}}
               provider={PROVIDER_GOOGLE}
@@ -70,10 +70,18 @@ const culture = ({route}) => {
           closeIconColor="#fff"
         />
         <Text>{detailInformation.detailIntro}</Text>
+        <Text style={styles.textalline}>문화제 위치</Text>
         {renderMap()}
       </ScrollView>
     </SafeAreaView>
   );
 };
-
+const styles = StyleSheet.create({
+  textalline:{
+    textAlign:'center',
+    fontSize: 25,
+    color:'white',
+    backgroundColor:'black',
+  }
+})
 export default culture;
