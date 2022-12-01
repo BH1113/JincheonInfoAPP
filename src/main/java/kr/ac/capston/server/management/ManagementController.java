@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -18,17 +17,28 @@ public class ManagementController {
     @Autowired
     private DetailDao detailDao;
 
-    @RequestMapping(value = "/manager", method = RequestMethod.GET)
+    @RequestMapping(value = "/manage", method = RequestMethod.GET)
     public String managent(Model model){
         List<DetailDto> detailDto = detailDao.getAll();
         model.addAttribute("details", detailDto);
         return "manage";
     }
 
-    @RequestMapping(value = "/manager", method = RequestMethod.POST)
-    public String addInformation(DetailDto detailDto){
+    @RequestMapping(value = "/manage", method = RequestMethod.POST)
+    public String addInformation(@RequestParam("name") String imageName,
+                                 @RequestParam("detailIntro") String detailIntro){
+        DetailDto detailDto = new DetailDto();
+        detailDto.setName(imageName);
+        detailDto.setDetailIntro(detailIntro);
         detailDao.add(detailDto);
-        return "manage";
+        return "redirect:manage";
+    }
+
+    @RequestMapping(value="/manage/{detailId}", method = RequestMethod.GET)
+    public String specificFile(@PathVariable String detailId, Model model){
+        List<DetailDto> detailDto = detailDao.getByName(detailId);
+        model.addAttribute("detail", detailDto);
+        return "detailInformation";
     }
 
     @InitBinder

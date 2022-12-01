@@ -6,27 +6,18 @@ public class ManagementRequest {
     private int pk;
     private String name;
     private String detailIntro;
-    private String detailImage;
-    private BigDecimal cor_x;
-    private BigDecimal cor_y;
-    private String imageFormat;
-    private int imageAmount;
+//    private String detailImage;
+//    private BigDecimal cor_x;
+//    private BigDecimal cor_y;
+//    private String imageFormat;
 
-    public int getImageAmount() {
-        return imageAmount;
-    }
-
-    public void setImageAmount(int imageAmount) {
-        this.imageAmount = imageAmount;
-    }
-
-    public String getImageFormat() {
-        return imageFormat;
-    }
-
-    public void setImageFormat(String imageFormat) {
-        this.imageFormat = imageFormat;
-    }
+//    public String getImageFormat() {
+//        return imageFormat;
+//    }
+//
+//    public void setImageFormat(String imageFormat) {
+//        this.imageFormat = imageFormat;
+//    }
 
     public int getPk() {
         return pk;
@@ -52,27 +43,27 @@ public class ManagementRequest {
         this.detailIntro = detailIntro;
     }
 
-    public String getDetailImage() {
-        return detailImage;
-    }
-
-    public void setDetailImage(String detailImage) {
-        this.detailImage = detailImage;
-    }
-
-    public BigDecimal getCor_x() {
-        return cor_x;
-    }
-
-    public void setCor_x(BigDecimal cor_x) {
-        this.cor_x = cor_x;
-    }
-
-    public BigDecimal getCor_y() {
-        return cor_y;
-    }
-
-    public void setCor_y(BigDecimal cor_y) {
-        this.cor_y = cor_y;
-    }
+//    public String getDetailImage() {
+//        return detailImage;
+//    }
+//
+//    public void setDetailImage(String detailImage) {
+//        this.detailImage = detailImage;
+//    }
+//
+//    public BigDecimal getCor_x() {
+//        return cor_x;
+//    }
+//
+//    public void setCor_x(BigDecimal cor_x) {
+//        this.cor_x = cor_x;
+//    }
+//
+//    public BigDecimal getCor_y() {
+//        return cor_y;
+//    }
+//
+//    public void setCor_y(BigDecimal cor_y) {
+//        this.cor_y = cor_y;
+//    }
 }

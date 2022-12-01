@@ -12,10 +12,10 @@
         List<DetailDto> details = (List<DetailDto>) request.getAttribute("details");
     %>
     <div>
-        <b>문화재 이름</b>
+        <b>문화재 이름</b><br/>
             <%
                 for(int i = 0; i < details.size(); i++){%>
-                    <a href="capServer/management?<%=details.get(i).getName()%>"><%=details.get(i).getName()%></a><br/>
+                   <a href="capServer/manage/<%=details.get(i).getName()%>"><%=details.get(i).getName()%></a><br/>
             <%}%>
     </div>
     <div>
@@ -27,12 +27,8 @@
         <label for="detailIntro">내용</label>
         <input type="text" name="detailIntro" id="detailIntro"/>
         <form:errors path="detailIntro"/><br/>
-        <label for="cor_x">x 좌표</label>
-        <input type="number" name="cor_x" id="cor_x"/><br/>
-        <label for="cor_y">y 좌표</label>
-        <input type="number" name="cor_y" id="cor_y"/><br/>
         <input type="submit" value="새로운 파일 등록"/>
-        </form>
+        </form:form>
     </div>
 </body>
 </html>

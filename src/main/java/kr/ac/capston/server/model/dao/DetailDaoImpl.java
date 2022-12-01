@@ -18,7 +18,6 @@ public class DetailDaoImpl implements DetailDao{
 
     @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        System.out.println(jdbcTemplate);
         this.jdbcTemplate = jdbcTemplate;
     }
 
