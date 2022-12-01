@@ -21,6 +21,7 @@ class Dashboard extends Component {
       <View style={styles.container}>
         <MapView
           style={styles.map}
+          initialRegion={this.state.initialPosition}
           showsUserLocation={true}>
          <Marker coordinate={{ latitude: 36.861788908031855, longitude: 127.48033416327694 }} /> 
          <Marker coordinate={{ latitude: 36.826156484755614, longitude: 127.49318372154447 }} /> 
