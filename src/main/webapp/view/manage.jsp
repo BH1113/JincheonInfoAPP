@@ -15,7 +15,7 @@
         <b>문화재 이름</b><br/>
             <%
                 for(int i = 0; i < details.size(); i++){%>
-                   <a href="capServer/manage/<%=details.get(i).getName()%>"><%=details.get(i).getName()%></a><br/>
+                   <a href="manage/<%=details.get(i).getName()%>"><%=details.get(i).getName()%></a><br/>
             <%}%>
     </div>
     <div>
@@ -25,8 +25,14 @@
         <input type="text" name="name" id="name"/>
         <form:errors path="name"/><br/>
         <label for="detailIntro">내용</label>
-        <input type="text" name="detailIntro" id="detailIntro"/>
+        <textarea  name="detailIntro" cols="50" rows="20"></textarea>
         <form:errors path="detailIntro"/><br/>
+        <label for="cor_x">x 좌표</label>
+        <input type="number" name="cor_x" id="cor_x"/><br/>
+        <label for="cor_y">y 좌표</label>
+        <input type="number" name="cor_y" id="cor_y"/><br/>
+        <label for="image">이미지 파일</label>
+        <input type="file" name="image" id="image"/><br/>
         <input type="submit" value="새로운 파일 등록"/>
         </form:form>
     </div>

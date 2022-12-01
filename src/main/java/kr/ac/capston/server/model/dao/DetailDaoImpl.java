@@ -65,8 +65,6 @@ public class DetailDaoImpl implements DetailDao{
 
     @Override
     public List<DetailDto> getByName(String name){
-        System.out.println(name);
-        System.out.println(jdbcTemplate);
         List<DetailDto> detailDto = (List<DetailDto>) jdbcTemplate.query(
                 "select * from capdb.jincheondetail where name = ?",
                 new String[]{name},

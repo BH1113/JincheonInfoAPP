@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
+import java.io.Console;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -18,7 +20,7 @@ public class ManagementController {
     private DetailDao detailDao;
 
     @RequestMapping(value = "/manage", method = RequestMethod.GET)
-    public String managent(Model model){
+    public String management(Model model){
         List<DetailDto> detailDto = detailDao.getAll();
         model.addAttribute("details", detailDto);
         return "manage";
@@ -26,8 +28,14 @@ public class ManagementController {
 
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
     public String addInformation(@RequestParam("name") String imageName,
-                                 @RequestParam("detailIntro") String detailIntro){
+                                 @RequestParam("detailIntro") String detailIntro, @RequestParam("cor_x") BigDecimal cor_x,
+                                 @RequestParam("cor_y") BigDecimal cor_y, @RequestParam("image") MultipartFile multipartFile){
         DetailDto detailDto = new DetailDto();
+        if(!multipartFile.isEmpty()){
+            String[] format = multipartFile.getOriginalFilename().split("\\.");
+            String path = "http://";
+        }
+
         detailDto.setName(imageName);
         detailDto.setDetailIntro(detailIntro);
         detailDao.add(detailDto);
@@ -37,7 +45,11 @@ public class ManagementController {
     @RequestMapping(value="/manage/{detailId}", method = RequestMethod.GET)
     public String specificFile(@PathVariable String detailId, Model model){
         List<DetailDto> detailDto = detailDao.getByName(detailId);
-        model.addAttribute("detail", detailDto);
+        ManagementRequest managementRequest = new ManagementRequest();
+        managementRequest.setName(detailDto.get(0).getName());
+        managementRequest.setDetailIntro(detailDto.get(0).getDetailIntro());
+
+        model.addAttribute("detail", managementRequest);
         return "detailInformation";
     }
 
