@@ -69,7 +69,7 @@ const culture = ({route}) => {
           onItemChanged={item => console.log('item', item)}
           closeIconColor="#fff"
         />
-        <Text>{detailInformation.detailIntro}</Text>
+        <Text style={styles.informationtext}>{detailInformation.detailIntro}</Text>
         <Text style={styles.textalline}>문화제 위치</Text>
         {renderMap()}
       </ScrollView>
@@ -82,6 +82,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color:'white',
     backgroundColor:'black',
-  }
+  },
+  informationtext:{
+    fontSize: 13,
+    fontWeight:'bold',
+   marginTop: 20,
+   marginBottom: 20,
+  },
 })
 export default culture;
