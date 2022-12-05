@@ -108,7 +108,7 @@ const mainHome = ({navigation}) => {
                     information: json,
                   });
                 } catch (err) {
-                  alert(err);
+                  alert('접속오류');
                 }
               }}
             />
@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
   },
   SafeAreaViewStyles: {
     flex: 1,
-  
   },
   imagestyle: {
     height: 200,
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    
+
     marginTop: 30,
     marginBottom: 30,
   },
