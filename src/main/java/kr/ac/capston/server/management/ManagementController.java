@@ -1,7 +1,9 @@
 package kr.ac.capston.server.management;
 
 import kr.ac.capston.server.model.dao.DetailDao;
+import kr.ac.capston.server.model.dao.ImageDao;
 import kr.ac.capston.server.model.dto.DetailDto;
+import kr.ac.capston.server.model.dto.ImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.Console;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class ManagementController {
 
     @Autowired
     private DetailDao detailDao;
+
+    @Autowired
+    private ImageDao imageDao;
 
     @RequestMapping(value = "/manage", method = RequestMethod.GET)
     public String management(Model model){
@@ -31,14 +35,19 @@ public class ManagementController {
                                  @RequestParam("detailIntro") String detailIntro, @RequestParam("cor_x") BigDecimal cor_x,
                                  @RequestParam("cor_y") BigDecimal cor_y, @RequestParam("image") MultipartFile multipartFile){
         DetailDto detailDto = new DetailDto();
-        if(!multipartFile.isEmpty()){
-            String[] format = multipartFile.getOriginalFilename().split("\\.");
-            String path = "http://";
-        }
-
         detailDto.setName(imageName);
         detailDto.setDetailIntro(detailIntro);
-        detailDao.add(detailDto);
+        int pkNum = detailDao.add(detailDto);
+
+        if(!multipartFile.isEmpty()){
+            ImageDto imageDto = new ImageDto();
+            String[] format = multipartFile.getOriginalFilename().split("\\.");
+
+            imageDto.setName(imageName);
+            imageDto.setDetailId(pkNum);
+            imageDto.setType(format[1]);
+            imageDao.add(imageDto);
+        }
         return "redirect:manage";
     }
 

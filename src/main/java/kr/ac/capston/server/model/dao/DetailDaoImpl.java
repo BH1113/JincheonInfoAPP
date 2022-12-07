@@ -5,6 +5,8 @@ import kr.ac.capston.server.model.dto.DetailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +26,8 @@ public class DetailDaoImpl implements DetailDao{
     private DetailMapper detailMapper = new DetailMapper();
 
     @Override
-    public void add(DetailDto detailDto){
+    public int add(DetailDto detailDto){
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
@@ -39,7 +42,9 @@ public class DetailDaoImpl implements DetailDao{
                 pstmt.setString(6, detailDto.getImageFormat());
                 return pstmt;
             }
-        });
+        }, keyHolder);
+        Number pkNum = keyHolder.getKey();
+        return pkNum.intValue();
     }
 
 

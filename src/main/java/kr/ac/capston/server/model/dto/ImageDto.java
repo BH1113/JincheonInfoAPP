@@ -1,6 +1,6 @@
 package kr.ac.capston.server.model.dto;
 
-public class FileDto {
+public class ImageDto {
     private int pk;
     private String name;
     private String type;

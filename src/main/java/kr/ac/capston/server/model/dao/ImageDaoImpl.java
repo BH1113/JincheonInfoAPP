@@ -1,6 +1,6 @@
 package kr.ac.capston.server.model.dao;
 
-import kr.ac.capston.server.model.dto.FileDto;
+import kr.ac.capston.server.model.dto.ImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -16,14 +16,14 @@ public class ImageDaoImpl implements ImageDao{
     }
 
     @Override
-    public void add(FileDto fileDto){}
+    public void add(ImageDto fileDto){}
 
     @Override
     public void update(int pk){}
 
     @Override
-    public List<FileDto> getAll(){return null;}
+    public List<ImageDto> getAll(){return null;}
 
     @Override
-    public List<FileDto> getByDetailId(int detailId){return null;}
+    public List<ImageDto> getByDetailId(int detailId){return null;}
 }
