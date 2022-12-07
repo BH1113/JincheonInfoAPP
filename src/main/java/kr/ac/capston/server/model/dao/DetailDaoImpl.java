@@ -32,14 +32,13 @@ public class DetailDaoImpl implements DetailDao{
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
                 PreparedStatement pstmt = con.prepareStatement(
-                        "insert into capdb.jincheondetail (name, detailIntro, detailImage, cor_x, cor_y, imageFormat) values(?,?,?,?,?,?)"
+                        "insert into capdb.jincheondetail (name, detailIntro, cor_x, cor_y) values (?,?,?,?)",
+                        new String[]{"id"}
                 );
                 pstmt.setString(1, detailDto.getName());
                 pstmt.setString(2, detailDto.getDetailIntro());
-                pstmt.setString(3, detailDto.getDetailImage());
-                pstmt.setBigDecimal(4, detailDto.getCor_x());
-                pstmt.setBigDecimal(5, detailDto.getCor_y());
-                pstmt.setString(6, detailDto.getImageFormat());
+                pstmt.setBigDecimal(3, detailDto.getCor_x());
+                pstmt.setBigDecimal(4, detailDto.getCor_y());
                 return pstmt;
             }
         }, keyHolder);
@@ -76,10 +75,7 @@ public class DetailDaoImpl implements DetailDao{
                 (rs, rowNum) -> {
                     DetailDto detailDto1 = new DetailDto();
                     detailDto1.setName(rs.getString("name"));
-                    detailDto1.setDetailImage(rs.getString("detailImage"));
                     detailDto1.setDetailIntro(rs.getString("detailIntro"));
-                    detailDto1.setImageFormat(rs.getString("imageFormat"));
-                    detailDto1.setImageAmount(rs.getInt("imageamount"));
                     detailDto1.setCor_x(rs.getBigDecimal("cor_x"));
                     detailDto1.setCor_y(rs.getBigDecimal("cor_y"));
                     return  detailDto1;
@@ -94,20 +90,5 @@ public class DetailDaoImpl implements DetailDao{
                  detailMapper
          );
          return detailDtoList;
-    }
-
-    @Override
-    public void updateImageAmount(int update, int pk){
-        jdbcTemplate.update(new PreparedStatementCreator() {
-            @Override
-            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                PreparedStatement pstmt = con.prepareStatement(
-                        "update capdb.jincheondetail set imageAmount = ? where idjincheonDetailkey = ?"
-                );
-                pstmt.setInt(1, update);
-                pstmt.setInt(2, pk);
-                return pstmt;
-            }
-        });
     }
 }

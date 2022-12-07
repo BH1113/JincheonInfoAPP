@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class ManagementController {
@@ -42,8 +43,9 @@ public class ManagementController {
         if(!multipartFile.isEmpty()){
             ImageDto imageDto = new ImageDto();
             String[] format = multipartFile.getOriginalFilename().split("\\.");
+            String saveFileName = UUID.randomUUID().toString().replace("-", "");
 
-            imageDto.setName(imageName);
+            imageDto.setName(saveFileName);
             imageDto.setDetailId(pkNum);
             imageDto.setType(format[1]);
             imageDao.add(imageDto);
