@@ -1,4 +1,4 @@
-package kr.ac.capston.server.model;
+package kr.ac.capston.server.detail;
 
 import kr.ac.capston.server.model.dto.DetailDto;
 import org.springframework.jdbc.core.RowMapper;

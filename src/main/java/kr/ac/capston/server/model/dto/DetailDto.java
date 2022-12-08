@@ -6,27 +6,8 @@ public class DetailDto {
     private int pk;
     private String name;
     private String detailIntro;
-    private String detailImage;
     private BigDecimal cor_x;
     private BigDecimal cor_y;
-    private String imageFormat;
-    private int imageAmount;
-
-    public int getImageAmount() {
-        return imageAmount;
-    }
-
-    public void setImageAmount(int imageAmount) {
-        this.imageAmount = imageAmount;
-    }
-
-    public String getImageFormat() {
-        return imageFormat;
-    }
-
-    public void setImageFormat(String imageFormat) {
-        this.imageFormat = imageFormat;
-    }
 
     public int getPk() {
         return pk;
@@ -50,14 +31,6 @@ public class DetailDto {
 
     public void setDetailIntro(String detailIntro) {
         this.detailIntro = detailIntro;
-    }
-
-    public String getDetailImage() {
-        return detailImage;
-    }
-
-    public void setDetailImage(String detailImage) {
-        this.detailImage = detailImage;
     }
 
     public BigDecimal getCor_x() {

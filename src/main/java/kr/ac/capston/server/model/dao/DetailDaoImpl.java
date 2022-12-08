@@ -1,6 +1,6 @@
 package kr.ac.capston.server.model.dao;
 
-import kr.ac.capston.server.model.DetailMapper;
+import kr.ac.capston.server.detail.DetailMapper;
 import kr.ac.capston.server.model.dto.DetailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -70,16 +70,16 @@ public class DetailDaoImpl implements DetailDao{
     @Override
     public List<DetailDto> getByName(String name){
         List<DetailDto> detailDto = (List<DetailDto>) jdbcTemplate.query(
-                "select * from capdb.jincheondetail where name = ?",
-                new String[]{name},
-                (rs, rowNum) -> {
-                    DetailDto detailDto1 = new DetailDto();
-                    detailDto1.setName(rs.getString("name"));
-                    detailDto1.setDetailIntro(rs.getString("detailIntro"));
-                    detailDto1.setCor_x(rs.getBigDecimal("cor_x"));
-                    detailDto1.setCor_y(rs.getBigDecimal("cor_y"));
-                    return  detailDto1;
-                });
+                new PreparedStatementCreator() {
+                    @Override
+                    public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                        PreparedStatement psmt = con.prepareStatement(
+                                "select * from capdb.jincheondetail where name = ?"
+                        );
+                        psmt.setString(1, name);
+                        return psmt;
+                    }
+                }, detailMapper);
         return  detailDto;
     }
 

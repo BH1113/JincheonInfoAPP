@@ -1,5 +1,6 @@
 package kr.ac.capston.server.model.dao;
 
+import kr.ac.capston.server.management.ManagementRowMapper;
 import kr.ac.capston.server.model.dto.ImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +14,7 @@ import java.util.List;
 public class ImageDaoImpl implements ImageDao{
 
     private JdbcTemplate jdbcTemplate;
+    private ManagementRowMapper managementMapper = new ManagementRowMapper();
 
     @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
@@ -41,5 +43,18 @@ public class ImageDaoImpl implements ImageDao{
     public List<ImageDto> getAll(){return null;}
 
     @Override
-    public List<ImageDto> getByDetailId(int detailId){return null;}
+    public List<ImageDto> getByDetailId(int detailId){
+        List<ImageDto> imageDtos = (List<ImageDto>) jdbcTemplate.query(
+                new PreparedStatementCreator() {
+                    @Override
+                    public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                        PreparedStatement psmt = con.prepareStatement(
+                                "select * from capdb.jincheonImage where detailId = ?"
+                        );
+                        psmt.setInt(1, detailId);
+                        return psmt;
+                    }
+                }, managementMapper);
+        return  imageDtos;
+    }
 }
