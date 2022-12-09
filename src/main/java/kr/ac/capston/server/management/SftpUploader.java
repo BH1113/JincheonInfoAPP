@@ -25,7 +25,7 @@ public class SftpUploader {
     private Channel channel = null;
     private ChannelSftp channelSftp = null;
 
-    public void upload(MultipartFile multipartFile, String saveFileName) throws Exception {
+    public void upload(MultipartFile multipartFile, String saveFileName, String format) throws Exception {
         jsch = new JSch();
         FileInputStream fis = null;
 
@@ -49,7 +49,7 @@ public class SftpUploader {
             multipartFile.transferTo(file);
             fis = new FileInputStream(file);
 
-            channelSftp.put(fis, saveFileName);
+            channelSftp.put(fis, saveFileName + "." +format);
         }catch (Exception e){
             throw e;
         }finally {

@@ -6,7 +6,7 @@ public class ManagementRequest {
     private int pk;
     private String name;
     private String detailIntro;
-    private String saveFileName;
+    private String detailImage;
     private BigDecimal cor_x;
     private BigDecimal cor_y;
     private String imageFormat;
@@ -44,11 +44,11 @@ public class ManagementRequest {
     }
 
     public String getDetailImage() {
-        return saveFileName;
+        return detailImage;
     }
 
     public void setDetailImage(String detailImage) {
-        this.saveFileName = detailImage;
+        this.detailImage = detailImage;
     }
 
     public BigDecimal getCor_x() {

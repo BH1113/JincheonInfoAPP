@@ -54,7 +54,7 @@ public class ManagementController {
             imageDto.setType(format[1]);
             imageDao.add(imageDto);
 
-            sftpUploader.upload(multipartFile, saveFileName);
+            sftpUploader.upload(multipartFile, saveFileName, format[1]);
         }
         return "redirect:manage";
     }
@@ -69,6 +69,7 @@ public class ManagementController {
         managementRequest.setDetailIntro(detailDto.get(0).getDetailIntro());
 
         model.addAttribute("detail", managementRequest);
+        model.addAttribute("images", imageDtos);
         return "detailInformation";
     }
 
