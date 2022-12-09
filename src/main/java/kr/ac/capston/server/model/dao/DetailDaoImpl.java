@@ -84,6 +84,22 @@ public class DetailDaoImpl implements DetailDao{
     }
 
     @Override
+    public List<DetailDto> getByPk(int pk){
+        List<DetailDto> detailDto = (List<DetailDto>) jdbcTemplate.query(
+                new PreparedStatementCreator() {
+                    @Override
+                    public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                        PreparedStatement psmt = con.prepareStatement(
+                                "select * from capdb.jincheondetail where pk = ?"
+                        );
+                        psmt.setInt(1, pk);
+                        return psmt;
+                    }
+                }, detailMapper);
+        return  detailDto;
+    }
+
+    @Override
     public List<DetailDto> getAll(){
          List<DetailDto> detailDtoList = jdbcTemplate.query(
                  "select * from capdb.jincheondetail",

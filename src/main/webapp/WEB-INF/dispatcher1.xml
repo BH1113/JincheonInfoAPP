@@ -60,4 +60,5 @@
     </bean>
 
     <bean class="kr.ac.capston.server.management.ManagementController"/>
+    <bean class="kr.ac.capston.server.management.SftpUploader"/>
 </beans>

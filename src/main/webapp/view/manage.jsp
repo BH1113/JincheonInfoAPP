@@ -15,7 +15,7 @@
         <b>문화재 이름</b><br/>
             <%
                 for(int i = 0; i < details.size(); i++){%>
-                   <a href="manage/<%=details.get(i).getName()%>"><%=details.get(i).getName()%></a><br/>
+                   <a href="manage/<%=details.get(i).getPk()%>"><%=details.get(i).getName()%></a><br/>
             <%}%>
     </div>
     <div>

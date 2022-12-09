@@ -18,6 +18,7 @@
         <input type="text" name="name" id="name" value="<%=managementDto.getName()%>"/><br/>
         <label for="detailIntro">내용</label>
         <textarea  name="detailIntro" cols="50" rows="20"><%=managementDto.getDetailIntro()%></textarea><br/>
+        <image src=""/>
         <input type="submit" value="수정"/>
         </form>
     </div>

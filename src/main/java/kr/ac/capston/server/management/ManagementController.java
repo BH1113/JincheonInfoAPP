@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +25,9 @@ public class ManagementController {
     @Autowired
     private ImageDao imageDao;
 
+    @Autowired
+    private SftpUploader sftpUploader;
+
     @RequestMapping(value = "/manage", method = RequestMethod.GET)
     public String management(Model model){
         List<DetailDto> detailDto = detailDao.getAll();
@@ -34,7 +38,7 @@ public class ManagementController {
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
     public String addInformation(@RequestParam("name") String imageName,
                                  @RequestParam("detailIntro") String detailIntro, @RequestParam("cor_x") BigDecimal cor_x,
-                                 @RequestParam("cor_y") BigDecimal cor_y, @RequestParam("image") MultipartFile multipartFile){
+                                 @RequestParam("cor_y") BigDecimal cor_y, @RequestParam("image") MultipartFile multipartFile) throws Exception {
         DetailDto detailDto = new DetailDto();
         detailDto.setName(imageName);
         detailDto.setDetailIntro(detailIntro);
@@ -49,13 +53,17 @@ public class ManagementController {
             imageDto.setDetailId(pkNum);
             imageDto.setType(format[1]);
             imageDao.add(imageDto);
+
+            sftpUploader.upload(multipartFile, saveFileName);
         }
         return "redirect:manage";
     }
 
     @RequestMapping(value="/manage/{detailId}", method = RequestMethod.GET)
-    public String specificFile(@PathVariable String detailId, Model model){
-        List<DetailDto> detailDto = detailDao.getByName(detailId);
+    public String specificFile(@PathVariable int detailId, Model model){
+        List<DetailDto> detailDto = detailDao.getByPk(detailId);
+        List<ImageDto> imageDtos = imageDao.getByDetailId(detailId);
+
         ManagementRequest managementRequest = new ManagementRequest();
         managementRequest.setName(detailDto.get(0).getName());
         managementRequest.setDetailIntro(detailDto.get(0).getDetailIntro());
